@@ -1,0 +1,317 @@
+{
+  "shortlistCount": 12,
+  "shortlistText": "Interior designers shortlisted for you",
+  "resultType": "interior designers",
+  "results": [
+    {
+      "title": "Mediterranean Feast",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 305,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  305, "Thick":  315}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  295, "Thick":  305}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  275, "Thick":  295}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  305, "Medium":  295, "Small":  275}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "Mild blend of Black Olives, Onion & Sweet corn"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Virgin Tomato",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 330,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  330, "Thick":  340}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  320, "Thick":  330}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  300, "Thick":  320}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  330, "Medium":  320, "Small":  300}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "High on fresh tomatoes, Onion, Sweet corn & black olives"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Bell Pepper Blast",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 350,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  350, "Thick":  350}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  330, "Thick":  340}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  310, "Thick":  330}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  350, "Medium":  330, "Small":  310}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "A creamy mix of red and green bell peppers with onion"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Pineapple Mist",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 350,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  350, "Thick":  350}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  330, "Thick":  340}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  310, "Thick":  330}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  350, "Medium":  330, "Small":  310}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "Super creamy & cheesy mix of bell peppers, pineapple and onions"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Classic Bell Pepper",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 370,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  370, "Thick":  390}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  350, "Thick":  370}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  320, "Thick":  340}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  370, "Medium":  350, "Small":  320}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "High on creamy cheese, green bell pepper, sweet corn and onions"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Red hot celebration",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 370,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  370, "Thick":  390}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  350, "Thick":  370}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  320, "Thick":  340}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  370, "Medium":  350, "Small":  320}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "A spicy mix of bell peppers, red chili and bursting cheese"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Classic Corn",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [
+        {
+          "defaultPrice": 330,
+          "responses": [
+            {
+              "topic": "Large",
+              "pricing": {"Slim":  330, "Thick":  340}
+            },
+            {
+              "topic": "Medium",
+              "pricing": {"Slim":  320, "Thick":  330}
+            },
+            {
+              "topic": "Small",
+              "pricing": {"Slim":  300, "Thick":  320}
+            }
+          ],
+          "crust": [
+            {
+              "topic": "Slim",
+              "pricing": {"Large":  330, "Medium":  320, "Small":  300}
+            }
+          ]
+        }
+      ],
+      "usp": [
+        "A casual retreat of sweet corn and sun dried tomatoes"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    },
+    {
+      "title": "Tinge of Tomato",
+      "type": "pizza",
+      "shortTitle": "Asense Interior",
+      "subTitle": "129, Siddapura",
+      "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+      "qna": [{
+        "defaultPrice": 330,
+        "responses": [
+          {
+            "topic": "Large",
+            "pricing": {"Slim":  330, "Thick":  340}
+          },
+          {
+            "topic": "Medium",
+            "pricing": {"Slim":  320, "Thick":  330}
+          },
+          {
+            "topic": "Small",
+            "pricing": {"Slim":  300, "Thick":  320}
+          }
+        ],
+        "crust": [
+          {
+            "topic": "Slim",
+            "pricing": {"Large":  330, "Medium":  320, "Small":  300}
+          }
+        ]
+      }],
+      "usp": [
+        "A spicy blend of fresh tomatoes, red chili and olives"
+      ],
+      "images": {
+        "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+        "secondary": []
+      }
+    }
+  ]
+}

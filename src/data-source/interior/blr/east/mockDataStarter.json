@@ -1,0 +1,93 @@
+{
+ "shortlistCount": 12,
+ "shortlistText": "Interior designers shortlisted for you",
+ "resultType": "interior designers",
+ "results": [
+   {
+     "title": "Garlic breadsticks",
+     "type": "starter",
+     "shortTitle": "Asense Interior",
+     "subTitle": "129, Siddapura",
+     "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+     "qna": [
+       {
+         "defaultPrice": 120,
+         "responses": [
+           {
+             "topic": "Large",
+             "pricing": {"Thin":  120, "Thick":  120}
+           },
+           {
+             "topic": "Medium",
+             "pricing": {"Thin":  120, "Thick":  120}
+           },
+           {
+             "topic": "Small",
+             "pricing": {"Thin":  120, "Thick":  120}
+           }
+         ],
+         "crust": [
+           {
+             "topic": "Thin",
+             "pricing": {"Large":  120, "Medium":  120, "Small":  120}
+           },
+           {
+             "topic": "Thick",
+             "pricing": {"Large":  120, "Medium":  120, "Small":  120}
+           }
+         ]
+       }
+     ],
+     "usp": [
+       "Garlic breadsticks with Italian seasoning"
+     ],
+     "images": {
+       "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+       "secondary": []
+     }
+   },
+   {
+     "title": "Cheesy Garlic breadsticks",
+     "type": "starter",
+     "shortTitle": "Asense Interior",
+     "subTitle": "129, Siddapura",
+     "address": "129, Siddapura, Whitefield, Bengaluru, Karnataka, India, Varthur Main Road, Bengaluru",
+     "qna": [
+       {
+         "defaultPrice": 150,
+         "responses": [
+           {
+             "topic": "Large",
+             "pricing": {"Thin":  150, "Thick":  150}
+           },
+           {
+             "topic": "Medium",
+             "pricing": {"Thin":  150, "Thick":  150}
+           },
+           {
+             "topic": "Small",
+             "pricing": {"Thin":  150, "Thick":  150}
+           }
+         ],
+         "crust": [
+           {
+             "topic": "Thin",
+             "pricing": {"Large":  150, "Medium":  150, "Small":  150}
+           },
+           {
+             "topic": "Thick",
+             "pricing": {"Large":  150, "Medium":  150, "Small":  150}
+           }
+         ]
+       }
+     ],
+     "usp": [
+       "Garlic breadsticks with stuffed cheese & seasoning"
+     ],
+     "images": {
+       "primary": "https://lh5.googleusercontent.com/p/AF1QipMfveOLCLmjGRfpfzooSICq5nskYbHGIdJVKtud=s870-k-no",
+       "secondary": []
+     }
+   }
+ ]
+}
