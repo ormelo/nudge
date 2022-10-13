@@ -94,6 +94,321 @@
             margin: 0 auto;
             margin-top: -35px;
         }
+        img.vert-move {
+            -webkit-animation: mover 1s infinite  alternate;
+            animation: mover 1s infinite  alternate;
+        }
+        img.vert-move {
+            -webkit-animation: mover 1s infinite  alternate;
+            animation: mover 1s infinite  alternate;
+        }
+        @-webkit-keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+.fill-100 {
+  height: 100%;
+  width: 100%;
+}
+
+.fill-100h {
+  height: 100%;
+}
+
+.fill-100w {
+  width: 100%;
+}
+
+/* Paddings-margins */
+.no-padding {
+  padding: 0;
+}
+
+.no-padding-left {
+  padding-left: 0;
+}
+
+.no-padding-right {
+  padding-right: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/* Box sizing rules */
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* Inherit fonts for inputs and buttons */
+button, input, optgroup, select, textarea {
+  font: inherit;
+}
+
+/* Remove highlighting elements on focus events */
+*:focus {
+  outline: none;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 140px;
+    float: right;
+    right: -50px;
+}
+
+.scene {
+  width: clamp(16rem, 50%, 32rem);
+  min-width: 16rem;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: rotate-planet 2.8s ease-in-out infinite;
+}
+
+.planet {
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(at 100% 10%, #5CDCC9 40%, #05B99F 40%, #05B99F 63%, #267A45 63%, #267A45);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  z-index: 2;
+}
+.planet__sector {
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(at 100% 10%, #5CDCC9 40%, #05B99F 40%, #05B99F 63%, #267A45 63%, #267A45);
+}
+.planet__sector--top {
+  clip-path: inset(0 0 50% 0);
+}
+.planet__sector--bottom {
+  clip-path: inset(50% 0 0 0);
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  outline: 2.5rem solid #1097CF;
+  transform: translate(-50%, -48%) rotate3d(6, 0.9, 0.9, 75deg);
+}
+
+.sky {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(50% 0%, 63% 33%, 98% 35%, 69% 58%, 79% 91%, 50% 73%, 21% 91%, 29% 58%, 2% 35%, 37% 33%);
+  background-color: #fae562;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.star--small {
+  width: 7%;
+  aspect-ratio: 1;
+}
+.star--medium {
+  width: 10%;
+  aspect-ratio: 1;
+}
+.star--big {
+  width: 17%;
+  aspect-ratio: 1;
+}
+.star:nth-child(1) {
+  top: 20%;
+  left: 23%;
+  animation-name: rotation-star-1;
+}
+.star:nth-child(1).star--big {
+  background-color: #fae562;
+}
+@keyframes rotation-star-1 {
+  0% {
+    top: 20%;
+    left: 23%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 1;
+  }
+  50% {
+    top: 84%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 1;
+  }
+  50.00001% {
+    top: 84%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 3;
+  }
+  100% {
+    top: 20%;
+    left: 23%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 3;
+  }
+}
+.star:nth-child(2) {
+  top: 15%;
+  left: 78%;
+  animation-name: rotation-star-2;
+}
+.star:nth-child(2).star--big {
+  background-color: #fae562;
+}
+@keyframes rotation-star-2 {
+  0% {
+    top: 15%;
+    left: 78%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 1;
+  }
+  50% {
+    top: 78%;
+    left: 15%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 1;
+  }
+  50.00001% {
+    top: 78%;
+    left: 15%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 3;
+  }
+  100% {
+    top: 15%;
+    left: 78%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 3;
+  }
+}
+.star:nth-child(3) {
+  top: 78%;
+  left: 15%;
+  animation-name: rotation-star-3;
+}
+.star:nth-child(3).star--big {
+  background-color: #fae562;
+}
+@keyframes rotation-star-3 {
+  0% {
+    top: 78%;
+    left: 15%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 1;
+  }
+  50% {
+    top: 15%;
+    left: 78%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 1;
+  }
+  50.00001% {
+    top: 15%;
+    left: 78%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 3;
+  }
+  100% {
+    top: 78%;
+    left: 15%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 3;
+  }
+}
+.star:nth-child(4) {
+  top: 84%;
+  left: 65%;
+  animation-name: rotation-star-4;
+}
+.star:nth-child(4).star--big {
+  background-color: #fae562;
+}
+@keyframes rotation-star-4 {
+  0% {
+    top: 84%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 1;
+  }
+  50% {
+    top: 20%;
+    left: 23%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 1;
+  }
+  50.00001% {
+    top: 20%;
+    left: 23%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    z-index: 3;
+  }
+  100% {
+    top: 84%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    z-index: 3;
+  }
+}
+
+.animation_2, .animation_3 {
+  animation-duration: 3.5s;
+}
+
+.animation_3, .animation_1 {
+  animation-direction: reverse;
+}
+
+.animation_1, .animation_4 {
+  animation-duration: 2.3333333333s;
+}
+
+@keyframes rotate-planet {
+  0% {
+    transform: rotate(0deg);
+  }
+  47% {
+    transform: rotate(20deg);
+  }
+  53% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
     </style>
 
@@ -195,8 +510,19 @@
                         </div>
                         <h1 class="mb-6 text-6xl md:text-8xl lg:text-10xl font-bold font-heading md:max-w-xl leading-none quicksand" style="line-height: 1.3;">Science-backed lifestyle coach to prevent <span id="rotated" class="highlight">obesity</span></h1>
 
-                        <div class="w-full md:w-1/2 p-8" style="padding:0px">
-                            <img class="banner transform hover:-translate-y-16 transition ease-in-out duration-1000" src="images/prev1.jpg" alt=""><div class="flex flex-wrap -m-2.5 mb-20">
+                        <div class="w-full md:w-1/2 p-8" style="padding:0px;display:table">
+                            <img class="banner transform hover:-translate-y-16 transition ease-in-out duration-1000" src="images/chronic.jpg" alt="" style="width: 32%;display: inline-block;margin-top: -56%;">
+                            <img class="banner transform hover:-translate-y-16 transition ease-in-out duration-1000 vert-move" src="images/man.jpg" alt="" style="width: 68%;display: inline-block;">
+
+                            <div class="main">
+                                <div class="scene">
+                                    <div class="star star--medium animation_1"></div>
+                                    <div class="star star--big animation_2"></div>
+                                    <div class="star star--big animation_3"></div>
+                                    <div class="star star--small animation_4"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -m-2.5 mb-20">
                         </div>
 
 
@@ -402,7 +728,8 @@ setInterval(function() {
  var word = document.getElementById('rotated').innerHTML;
  if(word=='obesity') document.getElementById('rotated').innerHTML = 'hypertension';
  else if(word=='hypertension') document.getElementById('rotated').innerHTML = 'diabetes';
- else document.getElementById('rotated').innerHTML = 'chronic diseases';
+ else if(word=='diabetes')  document.getElementById('rotated').innerHTML = 'chronic diseases';
+ else document.getElementById('rotated').innerHTML = 'obesity';
 },2000);
 
 
