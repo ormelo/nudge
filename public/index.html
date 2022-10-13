@@ -150,11 +150,6 @@
 }
 
 
-/* Inherit fonts for inputs and buttons */
-button, input, optgroup, select, textarea {
-  font: inherit;
-}
-
 /* Remove highlighting elements on focus events */
 *:focus {
   outline: none;
@@ -166,14 +161,14 @@ button, input, optgroup, select, textarea {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 140px;
+    top: 240px;
     float: right;
-    right: -50px;
+    right: 0px;
 }
 
 .scene {
   width: clamp(16rem, 50%, 32rem);
-  min-width: 16rem;
+  min-width: 10rem;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -395,20 +390,6 @@ button, input, optgroup, select, textarea {
   animation-duration: 2.3333333333s;
 }
 
-@keyframes rotate-planet {
-  0% {
-    transform: rotate(0deg);
-  }
-  47% {
-    transform: rotate(20deg);
-  }
-  53% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
 
     </style>
 
@@ -538,7 +519,7 @@ button, input, optgroup, select, textarea {
         <div class="py-40 bg-black bg-opacity-60" style="backdrop-filter: blur(12px);">
             <div class="container px-4 mx-auto">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="mb-11 md:text-8xl xl:text-10xl text-white font-bold text-center tracking-px-n leading-none text-4xl lh quicksand">98% of people quit their wellness diet/exercise plan within 2 weeks!</h2>
+                    <h2 class="mb-11 md:text-8xl xl:text-10xl text-white font-bold text-center tracking-px-n leading-none text-4xl lh quicksand" style="font-size:24px">98% of people quit their wellness diet/exercise plan within 2 weeks!</h2>
                     <div class="md:inline-block">
 
                     </div>
@@ -551,7 +532,7 @@ button, input, optgroup, select, textarea {
         <div class="container px-4 mx-auto">
             <div class="flex flex-wrap lg:items-center -m-8">
                 <div class="w-full md:w-1/2 p-8">
-                    <h2 class="mb-20 md:text-7xl font-bold font-heading tracking-px-n leading-tight md:max-w-lg text-4xl quicksand" style="margin-bottom: 2.5rem;">Nudge creates lasting results through habit and behavior change.</h2>
+                    <h2 class="mb-20 md:text-7xl font-bold font-heading tracking-px-n leading-tight md:max-w-lg text-4xl quicksand" style="margin-bottom: 2.5rem;font-size:24px">Nudge creates lasting results through habit and behavior change.</h2>
                     <div class="flex flex-wrap -m-1.5">
                         <div class="w-full p-1.5">
                             <div class="flex flex-wrap -m-6">
@@ -564,8 +545,8 @@ button, input, optgroup, select, textarea {
                                 </div>
                                 <div class="flex-1 p-6">
                                     <div class="md:max-w-xs">
-                                        <h3 class="mb-3 text-2xl font-semibold leading-snug quicksand">Personalized</h3>
-                                        <p class="text-gray-700 font-medium leading-relaxed quicksand" style="font-size:18px">Every individual's lifestyle is different and our bodies may not be able to adapt to a one-size-fits-all plan. Nudge provides a custom plan for each body type.</p>
+                                        <h3 class="mb-3 text-2xl font-semibold leading-snug quicksand" style="font-size:24px">Personalized</h3>
+                                        <p class="text-gray-700 font-medium leading-relaxed quicksand" style="font-size: 16px;font-family: Quicksand !important;">Every individual's lifestyle is different and our bodies may not be able to adapt to a one-size-fits-all plan. Nudge provides a custom plan for each body type.</p>
                                     </div>
                                 </div>
                             </div>
@@ -581,8 +562,8 @@ button, input, optgroup, select, textarea {
                                 </div>
                                 <div class="flex-1 p-6" style="margin-top: 1rem">
                                     <div class="md:max-w-xs">
-                                        <h3 class="mb-3 text-2xl font-semibold leading-snug quicksand">Blends into your lifestyle</h3>
-                                        <p class="text-gray-700 font-medium leading-relaxed quicksand" style="font-size:18px">Nudge eases you into a healthier lifestyle one day at a time. That too in a way that feels a natural extension to your current lifestyle.</p>
+                                        <h3 class="mb-3 text-2xl font-semibold leading-snug quicksand" style="font-size:24px">Blends into your lifestyle</h3>
+                                        <p class="text-gray-700 font-medium leading-relaxed quicksand" style="font-size: 16px;font-family: Quicksand !important;">Nudge eases you into a healthier lifestyle one day at a time. That too in a way that feels a natural extension to your current lifestyle.</p>
                                     </div>
                                 </div>
                             </div>
@@ -597,8 +578,8 @@ button, input, optgroup, select, textarea {
                                 </div>
                                 <div class="flex-1 p-6">
                                     <div class="md:max-w-xs">
-                                        <h3 class="mb-3 text-2xl font-semibold leading-snug quicksand">Non-restrictive</h3>
-                                        <p class="text-gray-700 font-medium leading-relaxed quicksand" style="font-size:18px">Nudge makes a realistic plan for your journey based on your current biomarkers in a way that not too harsh or restrictive.</p>
+                                        <h3 class="mb-3 text-2xl font-semibold leading-snug quicksand" style="font-size:24px">Non-restrictive</h3>
+                                        <p class="text-gray-700 font-medium leading-relaxed quicksand" style="font-size: 16px;font-family: Quicksand !important;">Nudge makes a realistic plan for your journey based on your current biomarkers in a way that not too harsh or restrictive.</p>
                                     </div>
                                 </div>
                             </div>
@@ -614,8 +595,8 @@ button, input, optgroup, select, textarea {
 
     <section class="pt-24 pb-28 bg-white overflow-hidden" style="padding-top: 0rem;">
         <div class="container px-4 mx-auto">
-            <h2 class="mb-5 text-6xl md:text-7xl text-center font-bold font-heading tracking-px-n leading-tight quicksand">How Nudge Works</h2>
-            <p class="mb-20 text-lg text-gray-900 text-center font-medium md:max-w-lg mx-auto quicksand" style="font-size:20px">Once you answer specific questions about your lifestyle, you will receive bite-sized recommendations that help you adopt healthy behaviors.
+            <h2 class="mb-5 text-6xl md:text-7xl text-center font-bold font-heading tracking-px-n leading-tight quicksand" style="font-size:24px">How Nudge Works</h2>
+            <p class="mb-20 text-lg text-gray-900 text-center font-medium md:max-w-lg mx-auto quicksand" style="font-size: 18px;font-family: Quicksand !important;>Once you answer specific questions about your lifestyle, you will receive bite-sized recommendations that help you adopt healthy behaviors.
 <br/><br/>
                 You will conquer 3 different lifestyle levels where you will experience real, long-lasting results! </p>
             <div class="flex flex-wrap -m-8">
@@ -630,8 +611,8 @@ button, input, optgroup, select, textarea {
                             </div>
                         </div>
                         <div class="md:max-w-xs mx-auto">
-                            <h3 class="mb-5 font-heading text-xl font-bold font-heading leading-normal quicksand">Habitat - Mastering Nutrition</h3>
-                            <p class="font-sans text-gray-600">In this level, you'll receive guided nutrition insights that change your relationship with food.</p>
+                            <h3 class="mb-5 font-heading text-xl font-bold font-heading leading-normal quicksand" style="font-size:24px;">Habitat - Mastering Nutrition</h3>
+                            <p class="font-sans text-gray-600" style="font-size: 16px;font-family: Quicksand !important;">In this level, you'll receive guided nutrition insights that change your relationship with food.</p>
                         </div>
                     </div>
                 </div>
@@ -647,8 +628,8 @@ button, input, optgroup, select, textarea {
                             </div>
                         </div>
                         <div class="md:max-w-xs mx-auto">
-                            <h3 class="mb-5 font-heading text-xl font-bold font-heading leading-normal quicksand">Oceanic - Mind over matter</h3>
-                            <p class="font-sans text-gray-600">In this level, you'll realize why stress is such a showstopper in any health endeavor and learn to master mind over matter with simple breathing and mindfulness techniques.</p>
+                            <h3 class="mb-5 font-heading text-xl font-bold font-heading leading-normal quicksand" style="font-size:24px;">Oceanic - Mind over matter</h3>
+                            <p class="font-sans text-gray-600" style="font-size: 16px;font-family: Quicksand !important;">In this level, you'll realize why stress is such a showstopper in any health endeavor and learn to master mind over matter with simple breathing and mindfulness techniques.</p>
                         </div>
                     </div>
                 </div>
@@ -664,8 +645,8 @@ button, input, optgroup, select, textarea {
                             </div>
                         </div>
                         <div class="md:max-w-xs mx-auto">
-                            <h3 class="mb-5 font-heading text-xl font-bold font-heading leading-normal quicksand">Woodland - Moderate yet effective</h3>
-                            <p class="font-sans text-gray-600">In this level, you will receive guided micro activities that take less than 10 minutes, but are highly effective to your body type</p>
+                            <h3 class="mb-5 font-heading text-xl font-bold font-heading leading-normal quicksand" style="font-size:24px;">Woodland - Moderate yet effective</h3>
+                            <p class="font-sans text-gray-600" style="font-size: 16px;font-family: Quicksand !important;">In this level, you will receive guided micro activities that take less than 10 minutes, but are highly effective to your body type</p>
                         </div>
                     </div>
                 </div>
@@ -675,14 +656,14 @@ button, input, optgroup, select, textarea {
 
     <section class="pt-20 pb-28 bg-white overflow-hidden" style="padding-top:0;padding-bottom:0">
         <div class="container px-4 mx-auto">
-            <h2 class="text-6xl md:text-7xl text-center font-bold font-heading font-heading tracking-px-n leading-tight md:max-w-lg mx-auto quicksand" style="font-size:38px">Join host of people transforming their health!</h2><br/><br/>
+            <h2 class="text-6xl md:text-7xl text-center font-bold font-heading font-heading tracking-px-n leading-tight md:max-w-lg mx-auto quicksand" style="font-size:30px">Join host of people transforming their health!</h2><br/><br/>
         </div>
         <div class="relative">
             <img class="w-full" src="flaro-assets/images/applications/bg.png" alt="">
             <img class="absolute top-1/2 w-3/12 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-9 mx-auto hover:scale-105 transition ease-in-out duration-1000" src="flaro-assets/images/applications/iphone2.png" alt="">
         </div>
         <div class="container px-4 mx-auto">
-            <p class="mb-9 text-lg text-gray-600 text-center font-medium leading-normal md:max-w-lg mx-auto quicksand" style="font-size:18px">From weight-watchers to people in their late diagnosis of pre-diabetes, pre-hypertension, etc host of people are seeing results through nudge. Get started now!</p>
+            <p class="mb-9 text-lg text-gray-600 text-center font-medium leading-normal md:max-w-lg mx-auto quicksand" style="font-size: 16px;font-family: Quicksand !important;">From weight-watchers to people in their late diagnosis of pre-diabetes, pre-hypertension, etc host of people are seeing results through nudge. Get started now!</p>
             <div class="flex flex-wrap justify-center -m-2.5">
                 <div class="w-auto p-2.5">
                     <a href="#">
