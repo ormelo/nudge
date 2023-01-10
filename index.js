@@ -762,6 +762,38 @@ app.get("/order/", function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'shortlists.html'));
 });
 
+app.get("/process/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'process.html'));
+});
+
+app.get("/orders/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'orders.html'));
+});
+
+app.get("/order-detail/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'orders.html'));
+});
+
+app.get("/questionnaire/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'questionnaire.html'));
+});
+
+app.get("/questionnaire-start/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'questionnaire.html'));
+});
+
+app.get("/dashboard/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'questionnaire.html'));
+});
+
+app.get("/dashboard-quote-res/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'questionnaire.html'));
+});
+
+app.get("/terms/", function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'terms.html'));
+});
+
 app.get("/memory", function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'memory.html'));
 });
