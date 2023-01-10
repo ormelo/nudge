@@ -10,6 +10,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+import QuestionRuleEngine from "./questionRuleEngine";
+
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 import RestaurantIcon from '@material-ui/icons/Business';
 import RequestQuoteIcon from '@material-ui/icons/NotesSharp';
@@ -17,6 +19,7 @@ import OrdersIcon from '@material-ui/icons/ViewListSharp';
 import InventoryIcon from '@material-ui/icons/ShoppingBasket';
 
 import { questions, conditionalQuestions } from '../../data-source/mockDataQnA';
+import CONSTANTS from "../constants";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -353,6 +356,61 @@ class QuoteRes extends Component {
         }
     }
 
+    runRuleEngine(formState) {
+        this.questionRuleEngine.run(formState, nextQuestionId => {
+          console.log('--nextQuestionId--', nextQuestionId);
+          if (nextQuestionId) {
+            /*if (groupedQuestionsById[nextQuestionId][0].mandatory === "No") {
+
+              checkForLastQuestion();
+            }*/
+            //setQuestion(questions[nextQuestionId][0]);
+            //setDisableNextButton(false);
+          } else {
+            //setDisableNextButton(true);
+          }
+        });
+      };
+
+    getQuestionsByToken(accessToken) {
+       var curr = this;
+       const rawResponse = fetch(CONSTANTS.ENDPOINT.GETQUESTIONS + accessToken).then((res)=>{
+               var res = res.json();
+                 res.then(function(r) {
+                   console.log('--Questions--', r.data);
+                   let response = r.data;
+                   curr.questionRuleEngine.parseRules(response);
+                   // questionResponses: {1: "1" , 2: "any", 3:"9"}};
+                   let formState = { currentQuestionIndex: 1,
+                                    currentQuestionId: 3,
+                                    questionResponses: {1: "2"}};
+                   curr.runRuleEngine(formState);
+                 });
+               });
+    }
+
+    getQuestions() {
+           var curr = this;
+           const rawResponse = fetch(CONSTANTS.ENDPOINT.DIRECTUSAUTH, {
+                    method: 'POST',
+                    headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                   "email": CONSTANTS.ENDPOINT.DIRECTUSEMAIL,
+                   "password": CONSTANTS.ENDPOINT.DIRECTUSPASSWORD
+                 })}).then((res)=>{
+                   var res = res.json();
+                   res.then(function(r) {
+                     console.log('Data: ', r.data);
+                     console.log('--AccessToken--', r.data.access_token);
+                         var accessToken = r.data.access_token;
+                         curr.getQuestionsByToken(accessToken);
+                   });
+                 });
+        }
+
     constructor() {
         super();
         var foodImgUrl = this.getFoodImg();
@@ -366,14 +424,19 @@ class QuoteRes extends Component {
                     foodCharges: (sessionStorage.getItem('quotePizzaSize')=='11' ? parseInt(sessionStorage.getItem('quotePizzaQty'),10)*199 : parseInt(sessionStorage.getItem('quotePizzaQty'),10)*159) + parseInt(sessionStorage.getItem('quoteGarlicQty'),10)*149 + parseInt(sessionStorage.getItem('quoteWrapsQty'),10)*159,
                     conveyanceCharges: sessionStorage.getItem('quoteDistance')!=null && sessionStorage.getItem('quoteDistance')=='10' ? 1400 : 1800,
                     total: (sessionStorage.getItem('quotePizzaSize')=='11' ? parseInt(sessionStorage.getItem('quotePizzaQty'),10)*199 : parseInt(sessionStorage.getItem('quotePizzaQty'),10)*159) + parseInt(sessionStorage.getItem('quoteGarlicQty'),10)*149 + parseInt(sessionStorage.getItem('quoteWrapsQty'),10)*159 + (sessionStorage.getItem('quoteDistance')!=null && sessionStorage.getItem('quoteDistance')=='10' ? 1400 : 1800),
-                    foodImgSrc: foodImgUrl
+                    foodImgSrc: foodImgUrl,
+                    currentQuestionIndex: 0,
+                    currentQuestionId: 0,
+                    questionResponses: {}
                 };
         window.currSlotSelected = '';
+
         this.handleTabChange = this.handleTabChange.bind(this);
+        this.questionRuleEngine = new QuestionRuleEngine();
     }
     componentDidMount() {
         var winHeight = window.innerHeight;
-
+        this.getQuestions();
     }
     handleTabChange(event, newValue) {
         console.log('neValue: ', newValue);
