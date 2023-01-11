@@ -16,6 +16,6 @@ CONSTANTS.ENDPOINT.GETQUESTIONS = 'https://sqc1wuh5.directus.app/items/question?
 
 CONSTANTS.ENDPOINT.GETQUESTIONBYID = 'https://sqc1wuh5.directus.app/items/question/<question-id>?access_token='
 
-CONSTANTS.ENDPOINT.GETRESPONSES = 'https://sqc1wuh5.directus.app/items/response?access_token='
+CONSTANTS.ENDPOINT.GETRESPONSES = 'https://sqc1wuh5.directus.app/items/response?filter={ "id": { "_in": [<response-ids>] }}&access_token='
 
 export default CONSTANTS

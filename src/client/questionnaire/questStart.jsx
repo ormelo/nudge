@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import QuestionRuleEngine from "./questionRuleEngine";
+import ResponseRenderer from './responseRenderer.jsx';
 
 import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
 import RestaurantIcon from '@material-ui/icons/Business';
@@ -378,6 +379,14 @@ class QuoteRes extends Component {
                         console.log('--Question--', r.data);
                         let question = r.data;
                         curr.setState({questionDescription: question.description});
+                                const rawResponse = fetch(CONSTANTS.ENDPOINT.GETRESPONSES.replace('<response-ids>',question.responses.toString()) + accessToken).then((res)=>{
+                                             var res = res.json();
+                                               res.then(function(r) {
+                                                 console.log('--Responses--', r.data);
+                                                 curr.setState({responses: r.data});
+                                                //responses
+                                                });
+                                });
                       });
                     });
          }
@@ -442,9 +451,10 @@ class QuoteRes extends Component {
                     questionDescription: 'Loading...',
                     questStart: false,
                     onboard: true,
-                    formState: { currentQuestionIndex: 0,
-                                 currentQuestionId: 0,
-                                 questionResponses: {}}
+                    responses: [],
+                    formState: { currentQuestionIndex: 1,
+                                 currentQuestionId: 2,
+                                 questionResponses: {1:"2",2:"any"}}
                 };
         window.currSlotSelected = '';
 
@@ -462,7 +472,7 @@ class QuoteRes extends Component {
     }
 
     render() {
-        const {onboard, questStart, questionDescription, value,quoteTitle, lineItem1, lineItem2, lineItem3, foodCharges, conveyanceCharges, total, foodImgSrc} = this.state;
+        const {responses, onboard, questStart, questionDescription, value,quoteTitle, lineItem1, lineItem2, lineItem3, foodCharges, conveyanceCharges, total, foodImgSrc} = this.state;
 
         return (<div style={{marginTop: '84px'}}>
                                     <img id="logo" className="logo-img" src="../images/logo-ng.png" style={{width: '86px'}} onClick={()=>{window.location.href='/';}} />
@@ -475,6 +485,7 @@ class QuoteRes extends Component {
                                                    <br/>
                                                    <div className="stage-desc size-l" >{questionDescription}</div>
                                                    <hr className="line-light" style={{marginTop: '18px'}}/>
+                                                   <div className="stage-desc size-l" ><ResponseRenderer responses={responses} /></div>
                                                    <br/>
                                                </React.Fragment>}
                                                {onboard &&
