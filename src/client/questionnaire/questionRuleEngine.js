@@ -123,10 +123,9 @@ class QuestionRuleEngine {
     this.engine
       .run(currentState)
       .then(results => {
-        /*if (results.events.length === 0) {
+        if (results.events.length === 0) {
           return callback(null);
-        }*/
-        debugger;
+        }
         let answeredQuestions = Object.keys(currentState && currentState.questionResponses || {});
         let nextQuestion = results.events.find(
           event =>

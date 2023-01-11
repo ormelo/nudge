@@ -360,10 +360,8 @@ class QuoteRes extends Component {
         this.questionRuleEngine.run(formState, nextQuestionId => {
           console.log('--nextQuestionId--', nextQuestionId);
           if (nextQuestionId) {
-            /*if (groupedQuestionsById[nextQuestionId][0].mandatory === "No") {
-
-              checkForLastQuestion();
-            }*/
+            this.getQuestionByIdByToken(this.currToken, nextQuestionId);
+            //checkForLastQuestion();
             //setQuestion(questions[nextQuestionId][0]);
             //setDisableNextButton(false);
           } else {
@@ -372,7 +370,20 @@ class QuoteRes extends Component {
         });
       };
 
+     getQuestionByIdByToken(accessToken, questionId) {
+            var curr = this;
+            const rawResponse = fetch(CONSTANTS.ENDPOINT.GETQUESTIONBYID.replace('<question-id>',questionId) + accessToken).then((res)=>{
+                    var res = res.json();
+                      res.then(function(r) {
+                        console.log('--Question--', r.data);
+                        let question = r.data;
+                        curr.setState({questionDescription: question.description});
+                      });
+                    });
+         }
+
     getQuestionsByToken(accessToken) {
+       this.currToken = accessToken;
        var curr = this;
        const rawResponse = fetch(CONSTANTS.ENDPOINT.GETQUESTIONS + accessToken).then((res)=>{
                var res = res.json();
@@ -381,10 +392,10 @@ class QuoteRes extends Component {
                    let response = r.data;
                    curr.questionRuleEngine.parseRules(response);
                    // questionResponses: {1: "1" , 2: "any", 3:"9"}};
-                   let formState = { currentQuestionIndex: 1,
+                   /*let formState = { currentQuestionIndex: 1,
                                     currentQuestionId: 3,
-                                    questionResponses: {1: "2"}};
-                   curr.runRuleEngine(formState);
+                                    questionResponses: {1: "2"}};*/
+                   curr.runRuleEngine(curr.state.formState);
                  });
                });
     }
@@ -427,12 +438,19 @@ class QuoteRes extends Component {
                     foodImgSrc: foodImgUrl,
                     currentQuestionIndex: 0,
                     currentQuestionId: 0,
-                    questionResponses: {}
+                    questionResponses: {},
+                    questionDescription: 'Loading...',
+                    questStart: false,
+                    onboard: true,
+                    formState: { currentQuestionIndex: 0,
+                                 currentQuestionId: 0,
+                                 questionResponses: {}}
                 };
         window.currSlotSelected = '';
 
         this.handleTabChange = this.handleTabChange.bind(this);
         this.questionRuleEngine = new QuestionRuleEngine();
+        this.currToken = '';
     }
     componentDidMount() {
         var winHeight = window.innerHeight;
@@ -444,26 +462,32 @@ class QuoteRes extends Component {
     }
 
     render() {
-        const {value,quoteTitle, lineItem1, lineItem2, lineItem3, foodCharges, conveyanceCharges, total, foodImgSrc} = this.state;
+        const {onboard, questStart, questionDescription, value,quoteTitle, lineItem1, lineItem2, lineItem3, foodCharges, conveyanceCharges, total, foodImgSrc} = this.state;
 
         return (<div style={{marginTop: '84px'}}>
                                     <img id="logo" className="logo-img" src="../images/logo-ng.png" style={{width: '86px'}} onClick={()=>{window.location.href='/';}} />
                                     <Paper>
                                           <TabPanel value={this.state.value} index={0}>
-                                               <span className="stage-heading" style={{top: '12px',background: '#f6f6f6'}}>H<RequestQuoteIcon />&nbsp;&nbsp;Generate Quote</span>
-                                               <hr className="line-light" style={{visibility: 'hidden'}}/>
-                                               <br/>
-                                               <span className="stage-desc size-l" >Pizzas: <input id="quotePizzaQty" type="number" className="txt-field" />&nbsp;&nbsp;&nbsp;&nbsp;Size: <input id="quotePizzaSize" type="number" className="txt-field" />&nbsp;inch</span>
-                                               <hr className="line-light" style={{marginTop: '18px'}}/>
-                                               <span className="stage-desc size-l" >Wraps: <input id="quoteWrapsQty" type="number" className="txt-field" /></span>
-                                               <hr className="line-light" style={{marginTop: '18px'}}/>
-                                               <span className="stage-desc size-l">Garlic bread: <input id="quoteGarlicQty" type="number" className="txt-field" /></span>
-                                               <hr className="line-light" style={{marginTop: '18px'}}/>
-                                               <span className="stage-desc size-l">Distance: <input id="quoteDistance" type="number" className="txt-field" />&nbsp;km</span>
-                                               <hr className="line-light" style={{marginTop: '18px'}}/>
-                                               <br/>
+                                               {questStart &&
+                                               <React.Fragment>
+                                                   <span className="stage-heading" style={{top: '12px',background: '#f6f6f6'}}>Lifestyle Questionnaire</span>
+                                                   <hr className="line-light" style={{visibility: 'hidden'}}/>
+                                                   <br/>
+                                                   <div className="stage-desc size-l" >{questionDescription}</div>
+                                                   <hr className="line-light" style={{marginTop: '18px'}}/>
+                                                   <br/>
+                                               </React.Fragment>}
+                                               {onboard &&
+                                               <React.Fragment>
+                                                    <div className="onboard-img">
+                                                    <img src="../img/images/edit.png" style={{width: '100px'}}/>
+                                                    </div>
+                                                    <div className="onboard-title">
+                                                    Let's start with simple questions about your lifestyle.
+                                                    </div>
+                                                </React.Fragment>}
                                                <div className="bottom-bar" ></div>
-                                               <a className="button" onClick={()=>{this.getStarted();}}>Get Started →</a>
+                                               <a className="button" style={{bottom: '20px'}} onClick={()=>{this.setState({onboard: false, questStart: true});}}>Get Started →</a>
                                                <br/><br/><br/><br/>
 
                                           </TabPanel>

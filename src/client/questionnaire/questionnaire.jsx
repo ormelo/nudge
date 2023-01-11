@@ -20,13 +20,13 @@ render(<Router>
                     </div>)} />
         <Route path="/questionnaire" exact render={() => (
                     <div className="results">
-                            <Route exact path="/" component={OnboardingWithRouter} />
-                        <Route  path="/questionnaire" component={OnboardingWithRouter} />
+                            <Route exact path="/" component={QuestStartWithRouter} />
+                        <Route  path="/questionnaire" component={QuestStartWithRouter} />
                     </div>)} />
         <Route path="/questionnaire-start" exact render={() => (
                     <div className="results">
-                            <Route exact path="/" component={QuestStartWithRouter} />
-                        <Route  path="/questionnaire-start" component={QuestStartWithRouter} />
+                            <Route exact path="/" component={OnboardingWithRouter} />
+                        <Route  path="/questionnaire-start" component={OnboardingWithRouter} />
                     </div>)} />
     </div>
 </Router>, document.getElementById('containerWiz'));

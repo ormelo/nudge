@@ -16,7 +16,7 @@ class QuestionDataTransformer {
   transform(questions) {
     questions = questions.map((q) => {
         console.log('--q--', {id: q['id'], rule: q['display_rule']});
-        return {id: q['id'], rule: q['display_rule']};
+        return {id: q['unique_id'], rule: q['display_rule']};
     });
     return questions;
   }
