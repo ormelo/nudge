@@ -373,17 +373,18 @@ class QuoteRes extends Component {
 
      getQuestionByIdByToken(accessToken, questionId) {
             var curr = this;
+            this.setState({currentQuestionId: questionId});
             const rawResponse = fetch(CONSTANTS.ENDPOINT.GETQUESTIONBYID.replace('<question-id>',questionId) + accessToken).then((res)=>{
                     var res = res.json();
                       res.then(function(r) {
                         console.log('--Question--', r.data);
                         let question = r.data;
-                        curr.setState({questionDescription: question.description});
+                        curr.setState({questionDescription: question.description, questionCategory: 'Knowing your '+question.category, questionCategoryImg: '../img/images/'+question.category+'.png'});
                                 const rawResponse = fetch(CONSTANTS.ENDPOINT.GETRESPONSES.replace('<response-ids>',question.responses.toString()) + accessToken).then((res)=>{
                                              var res = res.json();
                                                res.then(function(r) {
                                                  console.log('--Responses--', r.data);
-                                                 curr.setState({responses: r.data});
+                                                 curr.setState({responses: r.data, buttonLabel: 'Next'});
                                                 //responses
                                                 });
                                 });
@@ -447,18 +448,23 @@ class QuoteRes extends Component {
                     foodImgSrc: foodImgUrl,
                     currentQuestionIndex: 0,
                     currentQuestionId: 0,
+                    currentResponses: [],
                     questionResponses: {},
                     questionDescription: 'Loading...',
+                    questionCategory: '',
                     questStart: false,
                     onboard: true,
+                    buttonLabel: 'Get Started',
                     responses: [],
-                    formState: { currentQuestionIndex: 1,
-                                 currentQuestionId: 2,
-                                 questionResponses: {1:"2",2:"any"}}
+                    formState: { currentQuestionIndex: 0,
+                                 currentQuestionId: 1,
+                                 questionResponses: {}}
                 };
         window.currSlotSelected = '';
 
         this.handleTabChange = this.handleTabChange.bind(this);
+        this.handleCta = this.handleCta.bind(this);
+        this.recordSelection = this.recordSelection.bind(this);
         this.questionRuleEngine = new QuestionRuleEngine();
         this.currToken = '';
     }
@@ -466,13 +472,28 @@ class QuoteRes extends Component {
         var winHeight = window.innerHeight;
         this.getQuestions();
     }
+    handleCta() {
+        if(this.state.onboard) {
+            this.setState({onboard: false, questStart: true});
+        } else {
+            this.runRuleEngine(this.state.formState);
+        }
+    }
     handleTabChange(event, newValue) {
         console.log('neValue: ', newValue);
         this.setState({value: newValue});
     }
+    recordSelection(val) {
+        console.log('---v---', val);
+        let responses = this.state.currentResponses;
+        responses[this.state.currentQuestionId] = val;
+        this.setState({currentResponses: responses});
+        console.log('--new state--', {currentQuestionIndex: 1, currentQuestionId: this.state.currentQuestionId, questionResponses: responses});
+        this.setState({formState: {currentQuestionIndex: 1, currentQuestionId: this.state.currentQuestionId, questionResponses: responses}});
+    }
 
     render() {
-        const {responses, onboard, questStart, questionDescription, value,quoteTitle, lineItem1, lineItem2, lineItem3, foodCharges, conveyanceCharges, total, foodImgSrc} = this.state;
+        const {responses, onboard, questStart, questionCategory, questionCategoryImg, questionDescription, buttonLabel, value,quoteTitle, lineItem1, lineItem2, lineItem3, foodCharges, conveyanceCharges, total, foodImgSrc} = this.state;
 
         return (<div style={{marginTop: '84px'}}>
                                     <img id="logo" className="logo-img" src="../images/logo-ng.png" style={{width: '86px'}} onClick={()=>{window.location.href='/';}} />
@@ -480,12 +501,12 @@ class QuoteRes extends Component {
                                           <TabPanel value={this.state.value} index={0}>
                                                {questStart &&
                                                <React.Fragment>
-                                                   <span className="stage-heading" style={{top: '12px',background: '#f6f6f6'}}>Lifestyle Questionnaire</span>
+                                                   <span className="stage-heading left-anchor" style={{top: '12px',background: '#f6f6f6'}}><img class="category-icon" src={questionCategoryImg}/>{questionCategory}</span>
                                                    <hr className="line-light" style={{visibility: 'hidden'}}/>
                                                    <br/>
                                                    <div className="stage-desc size-l" >{questionDescription}</div>
                                                    <hr className="line-light" style={{marginTop: '18px'}}/>
-                                                   <div className="stage-desc size-l" ><ResponseRenderer responses={responses} /></div>
+                                                   <div className="stage-desc size-l" ><ResponseRenderer responses={responses} recordSelection={(v)=>{this.recordSelection(v)}} /></div>
                                                    <br/>
                                                </React.Fragment>}
                                                {onboard &&
@@ -498,7 +519,7 @@ class QuoteRes extends Component {
                                                     </div>
                                                 </React.Fragment>}
                                                <div className="bottom-bar" ></div>
-                                               <a className="button" style={{bottom: '20px'}} onClick={()=>{this.setState({onboard: false, questStart: true});}}>Get Started →</a>
+                                               <a className="button" style={{bottom: '20px'}} onClick={()=>{this.handleCta()}}>{buttonLabel} →</a>
                                                <br/><br/><br/><br/>
 
                                           </TabPanel>
